@@ -1,7 +1,7 @@
 # ⚡ AEGIS SHIELD
 ### Next-Generation Air Defence Interceptor Simulator
 
-[![Live Demo](https://img.shields.io/badge/▶_LIVE_DEMO-LAUNCH_SIMULATION-00ff88?style=for-the-badge&labelColor=001408&color=00ff88)](https://yourusername.github.io/aegis-shield/)
+[![Live Demo](https://img.shields.io/badge/▶_LIVE_DEMO-LAUNCH_SIMULATION-00ff88?style=for-the-badge&labelColor=001408&color=00ff88)](https://sumit6258.github.io/Aegis-Shield/)
 ![Three.js](https://img.shields.io/badge/Three.js-r128-blue?style=flat-square)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-yellow?style=flat-square)
 ![Physics](https://img.shields.io/badge/Physics-PN_Guidance-red?style=flat-square)
@@ -315,30 +315,6 @@ The entire simulation runs from `index.html`. The JavaScript is organized into *
 
 ---
 
-## 👔 For Recruiters
-
-This project demonstrates:
-
-**Systems Engineering**
-- Designed and implemented a real military guidance algorithm (PN guidance) from mathematical specification
-- Architected a multi-system simulation with clean separation of concerns
-- Built an AI decision system with quantitative threat scoring
-
-**Graphics Engineering**
-- WebGL/Three.js scene management with PBR rendering pipeline
-- Custom particle systems, procedural geometry, postprocessing-style effects
-- Canvas 2D radar scope with custom rendering loop
-
-**Software Engineering**
-- ~1800 lines of structured, documented, production-quality JavaScript
-- Zero external dependencies beyond Three.js
-- Performance-optimized game loop with batched UI updates
-
-**Domain Knowledge**
-- Proportional Navigation guidance law
-- Radar range equation (Blake)
-- Ballistic trajectory physics
-- Air defence engagement doctrine
 
 ---
 
