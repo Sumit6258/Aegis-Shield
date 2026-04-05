@@ -1,146 +1,156 @@
 # ⚡ AEGIS SHIELD
-### Next-Generation Air Defence Interceptor Simulator
+### Integrated Air Defence Warfare Simulator - v5.0
 
 [![Live Demo](https://img.shields.io/badge/▶_LIVE_DEMO-LAUNCH_SIMULATION-00ff88?style=for-the-badge&labelColor=001408&color=00ff88)](https://sumit6258.github.io/Aegis-Shield/)
 ![Three.js](https://img.shields.io/badge/Three.js-r128-blue?style=flat-square)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES2022-yellow?style=flat-square)
-![Physics](https://img.shields.io/badge/Physics-PN_Guidance-red?style=flat-square)
-![AI](https://img.shields.io/badge/AI-Threat_Prioritization-purple?style=flat-square)
+![Physics](https://img.shields.io/badge/Physics-APN_Guidance-red?style=flat-square)
+![AI](https://img.shields.io/badge/AI-Multi--Layer_IADS-purple?style=flat-square)
+![EW](https://img.shields.io/badge/EW-Jamming_%2B_ECM-orange?style=flat-square)
+![India](https://img.shields.io/badge/🇮🇳-Indigenous_Systems-green?style=flat-square)
 
 ---
 
-> **A production-grade, physics-accurate air defence simulation demonstrating real ballistic guidance algorithms, AI threat prioritization, and military-grade HUD design — built entirely in a single HTML file with no build tools.**
+> **A production-grade, physics-accurate Integrated Air Defence System (IADS) simulator featuring multi-layer defence, electronic warfare, MIRV warheads, Laser DEW, CIWS, and Indian indigenous systems including BrahMos - built entirely in a single HTML file with no build tools.**
 
 ---
 
 ## 🎯 What Is This?
 
-AEGIS SHIELD is a real-time 3D tactical air defence simulator that models how modern **Ballistic Missile Defence Systems (BMDS)** work. It simulates the entire engagement sequence:
+AEGIS SHIELD v5 is a real-time 3D tactical warfare simulator modelling a complete **Integrated Air Defence System (IADS)** - the same layered architecture used by NATO, DRDO, and modern militaries. It simulates the full kill chain:
 
-1. **Radar Detection** — Targets enter the scan zone; detection probability is computed using a simplified Blake radar range equation
-2. **Threat Classification** — An AI scores each target on proximity, speed, type, and stealth characteristics
-3. **Intercept Solution** — Proportional Navigation (PN) guidance calculates the optimal engagement trajectory
-4. **Kill Assessment** — Probability of Kill (Pk) is computed and displayed in real-time
+1. **Radar Detection** - Blake range equation with ECM/jamming degradation and ghost-blip generation
+2. **Electronic Warfare** - Jamming degrades detection; ARM missiles knock radar offline for 20 seconds
+3. **AI Threat Prioritization** - Multi-factor scoring assigns best available interceptor per threat
+4. **Multi-Layer Engagement** - L1 exo-atmospheric → L2 medium → L3 short → L4 point defence (CIWS/Laser)
+5. **Intercept Solution** - Augmented Lead Pursuit guidance with terminal phase logging
+6. **Kill Assessment** - Pk calculated from speed ratio, range, RCS, ECM state, and ADS kill radius
 
-This is not a simple game — it's an engineering simulation with real military guidance law mathematics.
+This is not a game - it's a defence engineering simulation with real military doctrine.
 
 ---
 
 ## 🚀 Live Demo
 
+**[▶ Launch Simulation](https://sumit6258.github.io/Aegis-Shield/)**
+
 | Action | Result |
 |---|---|
-| Click **COMPOUND ASSAULT** | Launches all threat types simultaneously |
-| Toggle **AUTO DEF** | AI system engages all threats by priority |
-| Click a **threat row** | Locks target and shows live physics equations |
-| Press **F** | Cycles camera to follow an interceptor |
-| Press **M** | Activates slow-motion cinematic mode |
+| Click **GULF WAR SIM** | Mixed ballistic, cruise, jets, F-35s |
+| Click **EW BLACKOUT** | ARM missiles kill radar → stealth jets attack blind |
+| Click **MIRV STRIKE** | Bus missile splits into 3–5 warheads at apogee |
+| Toggle **MULTI-LAYER** `[M]` | All 13 systems engage simultaneously by range |
+| Click **BRAHMOS STRIKE** 🇮🇳 | Mach 3.5 sea-skimmers with terminal pop-up dive |
+| Toggle **AUTO DEF** `[A]` | AI system assigns optimal interceptor per threat |
+| Press `[F]` | Cycle camera: Free Orbit → Follow Interceptor → Overview |
+| Press `[X]` | Slow-motion cinematic mode |
+| Press `[9]` | BrahMos Supersonic Strike scenario |
+| Press `[0]` | India-Pakistan Conflict simulation |
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-AEGIS SHIELD v4.0
-├── § 1  CONSTANTS & CONFIG       — ADS systems, threat definitions
-├── § 2  THREE.JS RENDERER        — WebGL, ACESFilmic tone mapping, shadows
-├── § 3  CAMERA CONTROLLER        — Free orbit | Follow target | Overview
-├── § 4  LIGHTING                 — Physically correct moon + fill + base lights
-├── § 5  WORLD BUILDER            — Noise terrain, PBR materials, atmosphere
-├── § 6  PHYSICS ENGINE           — PN guidance, ballistic arcs, drag, Pk
-├── § 7  AI DEFENSE SYSTEM        — Threat scoring, priority queue, auto-engage
-├── § 8  ENTITY FACTORIES         — PBR mesh construction (jets, missiles, drones)
-├── § 9  TARGET MANAGEMENT        — Spawn, update, stochastic flight physics
-├── § 10 INTERCEPTOR MANAGEMENT   — Launch, PN guidance, exhaust smoke, kill check
-├── § 11 EXPLOSION SYSTEM         — Particle bursts, shockwave rings, debris
-├── § 12 RADAR SYSTEM             — 2D scope: sweep, blips, IFF classification
-├── § 13 DETECTION SYSTEM         — Radar equation probability, stealth modeling
-├── § 14 KILL EFFECT              — Screen-space rings + SPLASH! UI overlay
-├── § 15 AUDIO SYSTEM             — Web Audio API procedural sound synthesis
-├── § 16 LOG SYSTEM               — Timestamped engagement event log
-├── § 17 UI SYSTEM                — Modular HUD panels, live equations display
-├── § 18 CONTROLS                 — Input handlers, keyboard shortcuts
-├── § 19 GAME LOOP                — Fixed timestep, slow-motion, entity cleanup
-└── § 20 BOOT SEQUENCE            — Progressive loading, auto-demo
+AEGIS SHIELD v5.0 - Integrated Air Defence Warfare Simulator
+├── § 1   DEFENCE SYSTEM DEFINITIONS  - 13 ADS, 17 threat types w/ real specs
+├── § 2   THREAT DEFINITIONS          - RCS, speed, altitude, drag, ECM, typeW
+├── § 3   SIMULATION STATE            - SIM object, EW state, jamming, laser energy
+├── § 4   THREE.JS RENDERER           - WebGL, ACESFilmic, PCF shadows, fog
+├── § 5   CAMERA CONTROLLER           - Free orbit | Follow | Overview (3 modes)
+├── § 6   LIGHTING + WORLD            - PBR terrain, vertex colour, stars, base
+├── § 7   GUIDANCE ENGINE             - Augmented Lead Pursuit (APN), tgo display
+├── § 8   PHYSICS HELPERS             - Pk, detection probability, threat scoring
+├── § 9   AI MULTI-LAYER ASSIGNMENT   - getBestADS(), layer routing by range
+├── § 10  MESH FACTORIES              - PBR MeshStandardMaterial for all entities
+├── § 11  TARGET SPAWNING + UPDATE    - 17 flight models incl. MIRV, HGV, BrahMos
+├── § 12  INTERCEPTOR SYSTEM          - Launch, guidance, smoke, kill, CIWS, Laser
+├── § 13  LASER DEW                   - Beam render, energy pool, screen flash
+├── § 14  EXPLOSIONS                  - 3-ring shockwave, debris particles, flash
+├── § 15  RADAR SCOPE (2D Canvas)     - PPI scope, IFF symbols, ghost blips, ECM
+├── § 16  DETECTION SYSTEM            - Blake equation + jamming + ARM damage
+├── § 17  KILL EFFECTS                - Screen-space ring projection + SPLASH
+├── § 18  AUDIO                       - Web Audio API procedural synthesis
+├── § 19  LOG SYSTEM                  - Timestamped military vocabulary
+├── § 20  UI UPDATE                   - Flex-column layout, Pk bar, EW status
+├── § 21  CONTROLS                    - All inputs, keyboard shortcuts [0-9]
+├── § 22  MAIN LOOP                   - Fixed timestep, radar repair, laser recharge
+└── § 23  BOOT SEQUENCE               - Progressive loading, auto Gulf War demo
 ```
 
 ---
 
 ## 🔬 Engineering Concepts
 
-### Proportional Navigation (PN) Guidance
+### Augmented Lead Pursuit Guidance (APN)
 
-The most important algorithm in the system. PN is the guidance law used by real interceptor missiles including the AIM-120 AMRAAM and Patriot PAC-3.
+Replaces v4's Proportional Navigation which failed on geometry edge cases. The interceptor calculates where the target **will be** at intercept time and steers toward that predicted point every frame.
 
 ```
-a_cmd = N · V_c · λ̇ × ê_LOS
+aimPoint = target.pos + target.vel × lead_time
+desired  = normalize(aimPoint − interceptor.pos) × iSpeed
+delta    = desired − interceptor.vel
+clamped  = min(|delta|, iSpeed × N × 1.8 × dt)
 ```
 
 | Variable | Meaning |
 |---|---|
-| `N` | Navigation constant (3–6; higher = more aggressive) |
-| `V_c` | Closing velocity — rate at which range decreases |
-| `λ̇` | Line-of-sight angular rate (rad/s) |
-| `ê_LOS` | Unit vector along the line of sight |
+| `lead_time` | `min(tgo × 0.72, 15s)` - time to predicted intercept |
+| `tgo` | Time-to-go: `dist / max(abs(Vc) + 0.5, iSpeed × 0.3)` |
+| `N` | Navigation constant (4–6 per ADS system) |
+| `Vc` | Closing speed: `vRel · rHat` |
 
-**3D Implementation:**
-```javascript
-// LOS vector and range
-const r_vec = tgt.pos.clone().sub(inter.pos);
-const r     = r_vec.length();
-
-// Relative velocity
-const v_rel = tgt.vel.clone().sub(inter.vel);
-
-// Closing velocity (positive when closing)
-const V_c   = -r_vec.dot(v_rel) / r;
-
-// LOS rate: λ̇ = (r × v_rel) / |r|²
-const los_rate = r_vec.clone().cross(v_rel).divideScalar(r * r);
-
-// Commanded acceleration
-const a_cmd = los_rate.clone().cross(r_vec.normalize())
-                              .multiplyScalar(N * Math.max(V_c, 0));
-```
-
-### Ballistic Trajectory
+### Ballistic / HGV Trajectory
 
 ```
-y(t) = y_peak · 4 · frac · (1 - frac)
+y(t) = peak_alt × 4 × frac × (1 − frac)   [parabolic arc]
+
+v_terminal = v_base × (1 + (frac − 0.55) × 2.2)   [gravity-accelerated dive]
 ```
 
-Missiles follow a parabolic arc with terminal acceleration (gravity-driven dive). Speed increases in the terminal phase modelling real physics:
-```
-v_terminal = v_base · (1 + (frac - 0.55) · 2.2)
-```
+**Avangard HGV** additionally applies random lateral maneuvers every 1–2.5 seconds, making intercept probability drop significantly.
 
 ### Radar Detection Probability (Blake Equation)
 
 ```
-P_detect = σ · (R_max / R)⁴ · P_noise
+P_detect = σ_effective × (R_max / R)⁴ × noise × jamming_factor
 ```
 
 | Variable | Meaning |
 |---|---|
-| `σ` | Radar Cross-Section (m²) |
-| `R_max` | Maximum radar range |
-| `R` | Actual range to target |
-| `P_noise` | Random noise component [0.7, 1.0] |
+| `σ_effective` | RCS × 0.1 if ECM active, else full RCS |
+| `jamming_factor` | `1 − jammingIntensity × 0.7` when EW active |
+| `noise` | Random `[0.65, 1.0]` per sweep pass |
 
-This means stealth aircraft (`σ = 0.05 m²`) are significantly harder to detect than conventional jets (`σ = 0.60 m²`).
+F-35 (`σ = 0.001 m²`) is **600× harder to detect** than Su-57 (`σ = 0.60 m²`).
+
+### MIRV Separation
+
+At 48% of ballistic arc (near apogee), the MIRV bus destructs and spawns 3–5 independent `ballistic` reentry vehicles at the bus position. Each RV has an independent trajectory toward base.
+
+```javascript
+if (frac >= 0.48 && !t.isMIRVed) {
+  t.isMIRVed = true;
+  const rvCount = 3 + Math.floor(Math.random() * 2);
+  for (let i = 0; i < rvCount; i++) spawnTarget('ballistic', ...);
+  removeTarget(t); // bus self-destructs
+}
+```
 
 ### Probability of Kill (Pk)
 
 ```
-Pk = P_guidance · P_fuze · P_lethality
+Pk = f(speed_ratio, range_factor, rcs_penalty, ecm_penalty, kill_radius_bonus)
 ```
 
-Calculated from:
-- Speed ratio between interceptor and target
-- Intercept range vs maximum engagement range
-- Target maneuverability class
-- Target RCS (stealth penalty)
-- ADS kill radius
+```javascript
+let pk = min(0.96, (iSpeed/tSpeed − 0.5) × 0.55 + 0.38);
+pk *= (0.45 + rangeFactor × 0.55);     // worse at max range
+if (tSpeed > 7)   pk *= 0.80;           // hypersonic penalty
+if (rcs < 0.01)   pk *= 0.50;           // stealth penalty
+if (ecmActive)    pk *= 0.65;           // ECM penalty
+pk *= min(1.2, killRadius / 6);         // kill radius bonus
+```
 
 ### AI Threat Priority Score
 
@@ -148,42 +158,130 @@ Calculated from:
 Score = 40·dist_score + 30·speed_score + 3·type_weight + 15·alt_score + 10·rcs_score
 ```
 
-The AI sorts all detected threats by score and engages highest-priority targets first, avoiding wasting interceptors on easy low-priority drones when a hypersonic missile is inbound.
+Multi-layer mode routes each threat to the optimal ADS by range:
+- `dist > 150km` → Arrow-3 / PAD
+- `dist > 100km` → THAAD / AAD / Barak-8
+- `dist > 80km`  → S-400 / Akash-NG
+- `dist > 60km`  → Patriot PAC-3
+- `dist > 20km`  → Iron Dome / NASAMS / QRSAM
+- `dist < 8km`   → Phalanx CIWS (auto-fires every 350ms)
 
-### Aerodynamic Drag
+### BrahMos Terminal Behaviour
 
+BrahMos-II cruises at 10m altitude (sea-skimming). In the final 40km it executes a **pop-up maneuver** to 3.5km then dives onto the target - mimicking real-world BrahMos terminal phase that defeats radar horizon masking.
+
+```javascript
+if (dist < 40) {
+  const popFrac = (40 − dist) / 40;
+  t.pos.y = 0.01 + Math.sin(popFrac × Math.PI) × 3.5;
+}
 ```
-F_drag ≈ ½ · ρ · Cd · A · v²
-```
-
-Simplified as: `deceleration ∝ drag_coeff · v²`
-
-Each threat type has a drag coefficient — hypersonic missiles have very low drag (0.002), drones have higher drag (0.012).
 
 ---
 
-## 🎮 Air Defence Systems
+## 🛡️ Defence Systems (13 Total)
 
-| System | Speed | Kill Radius | Range | Nav N | Role |
+### International Systems
+| System | Layer | Speed | Kill R | Range | Special |
 |---|---|---|---|---|---|
-| Iron Dome | 14 km/s | 7 km | 90 km | 4 | Short-range, drones/rockets |
-| Patriot PAC-3 | 16 km/s | 7 km | 90 km | 4 | Medium-range, cruise/ballistic |
-| S-400 Triumph | 18 km/s | 9 km | 130 km | 5 | Long-range, area denial |
-| THAAD | 22 km/s | 11 km | 210 km | 5 | Theatre ballistic missile defence |
-| Arrow-3 | 26 km/s | 13 km | 260 km | 6 | Exoatmospheric, ICBM intercept |
+| Phalanx CIWS | L4 | ∞ | 0.5km | 8km | Auto-fires, no interceptor |
+| NASAMS | L3 | 20km/s | 5km | 40km | Fast reload |
+| Iron Dome | L3 | 14km/s | 6km | 70km | Short-range swarms |
+| Patriot PAC-3 | L2 | 16km/s | 6km | 90km | Cruise + ballistic |
+| S-400 Triumph | L2 | 18km/s | 8km | 130km | Area denial |
+| THAAD | L1 | 22km/s | 10km | 200km | Theatre BMD |
+| Arrow-3 | L1 | 26km/s | 12km | 250km | Exo-atmospheric |
+| Laser DEW | DEW | Light | ∞ | 22km | 22% energy/shot, recharges |
+
+### 🇮🇳 Indian Indigenous Systems (DRDO)
+| System | Layer | Speed | Range | Programme |
+|---|---|---|---|---|
+| QRSAM | L3 | 16km/s | 40km | Quick Reaction SAM |
+| Akash-NG | L2 | 18km/s | 70km | Next-Gen Akash |
+| Barak-8 MRSAM | L2 | 22km/s | 100km | DRDO + IAI joint |
+| AAD Endo-AD | L1 | 19km/s | 100km | Endo-atmospheric BMD |
+| PAD Prithvi AD | L1 | 24km/s | 200km | Exo-atmospheric BMD |
 
 ---
 
-## 🎯 Threat Library
+## 🎯 Threat Library (17 Types)
 
-| Platform | Type | Speed | Altitude | RCS | Stealth Level |
-|---|---|---|---|---|---|
-| Shahed-136 | Loitering Drone | 0.8 km/s | 400m | 0.35 m² | Low |
-| Tomahawk LACM | Cruise Missile | 2.5 km/s | 80m | 0.25 m² | Medium |
-| Iskander SRBM | Ballistic Missile | 6.0 km/s | 55km arc | 0.20 m² | Medium |
-| Su-57 Felon | Fighter Jet | 3.2 km/s | 8km | 0.60 m² | Low (evades) |
-| B-21 Raider | Stealth Bomber | 2.8 km/s | 12km | 0.05 m² | **Extreme** |
-| Kinzhal | Hypersonic | 10 km/s | 20km arc | 0.15 m² | High |
+### Drones
+| Platform | Speed | Altitude | RCS | Special |
+|---|---|---|---|---|
+| Shahed-136 | 0.8km/s | 400m | 0.35m² | Stochastic maneuvering |
+| Swarm Drone | 0.7km/s | 300m | 0.15m² | Coordinated group AI |
+
+### Cruise & Sea-Skimmers
+| Platform | Speed | Altitude | RCS | Special |
+|---|---|---|---|---|
+| Tomahawk LACM | 2.5km/s | 120m | 0.25m² | - |
+| Sea-Skimmer ASM | 3.0km/s | 15m | 0.18m² | Near radar-invisible |
+| BrahMos-II 🇮🇳 | 3.5km/s | 10m | 0.08m² | Pop-up terminal dive |
+| BrahMos-ER 🇮🇳 | 3.2km/s | 4km | 0.10m² | Extended range |
+
+### Ballistic
+| Platform | Speed | Altitude | RCS | Special |
+|---|---|---|---|---|
+| Iskander SRBM | 5.5km/s | 50km arc | 0.20m² | - |
+| Prithvi-II 🇮🇳 | 4.5km/s | 45km arc | 0.22m² | - |
+| MIRV Bus | 5.0km/s | 60km arc | 0.22m² | Splits at apogee → 3–5 RVs |
+
+### Fighter Jets
+| Platform | Speed | Altitude | RCS | Special |
+|---|---|---|---|---|
+| Su-57 Felon | 3.2km/s | 7km | 0.60m² | Evasive maneuver |
+| F-35 Lightning II | 2.9km/s | 9km | 0.001m² | ECM + extreme stealth |
+| F-22 Raptor | 3.8km/s | 11km | 0.0001m² | Barrel-roll evasion |
+| J-20 Dragon | 3.3km/s | 10km | 0.002m² | ECM |
+| MiG-31 Foxhound | 4.5km/s | 14km | 0.55m² | High-speed dash |
+| B-21 Raider | 2.8km/s | 11km | 0.05m² | Extreme stealth |
+
+### Hypersonic
+| Platform | Speed | Altitude | RCS | Special |
+|---|---|---|---|---|
+| Kinzhal ASM | 9.5km/s | 18km arc | 0.15m² | - |
+| Avangard HGV | 13km/s | 25km glide | 0.12m² | Random lateral maneuvers |
+| AGM-88 HARM | 3.0km/s | 5km | 0.12m² | Homes on radar → 20s blackout |
+
+---
+
+## ⚡ Electronic Warfare System
+
+### Jamming
+- Reduces detection probability by up to **70%**
+- Generates **ghost blips** on radar scope (purple, random positions)
+- Radar sweep phosphor trail dims
+- EW status bar appears at top of screen
+
+### ARM Strike (AGM-88 HARM)
+- Missile homes on radar installation coordinates
+- On impact: **radar goes offline for 20 seconds**
+- Radar scope shows "RADAR OFFLINE" with countdown
+- After 20s, radar auto-repairs and resumes tracking
+
+### ECM (Stealth Jets)
+- F-35, F-22, J-20 toggle ECM periodically (3–8 second cycles)
+- While active: RCS drops to **10% of normal**
+- Engine glow turns magenta as visual indicator
+- Pk drops by 35% against ECM-active targets
+
+---
+
+## 🌐 Warfare Scenarios (8 Total)
+
+| Key | Scenario | Threats |
+|---|---|---|
+| `[1]` | Drone Swarm | 8 coordinated swarm drones |
+| `[2]` | Gulf War Simulation | Ballistic, cruise, F-35, jets, drones |
+| `[3]` | Hypersonic Barrage | HGV + Kinzhal + Iskander |
+| `[4]` | MIRV Strike | 3 MIRV buses → 9–15 RVs |
+| `[5]` | EW Blackout + Strike | ARM → radar down → stealth jets |
+| `[6]` | Compound Assault | All threat types simultaneously |
+| `[7]` | Multi-Vector Coordinated | 10 simultaneous diverse threats |
+| `[8]` | Anti-Radiation Strike | ARM + F-35 + stealth package |
+| `[9]` | BrahMos Supersonic Strike 🇮🇳 | BrahMos-II/ER + Prithvi-II |
+| `[0]` | India-Pakistan Conflict 🇮🇳 | Prithvi, BrahMos, MiG-31, F-35, ARM |
 
 ---
 
@@ -191,137 +289,160 @@ Each threat type has a drag coefficient — hypersonic missiles have very low dr
 
 ### 3D Rendering
 - **Three.js r128** with WebGL 2.0
-- **PBR Materials** (`MeshStandardMaterial`) for all objects — roughness, metalness, emissive
-- **ACES Filmic** tone mapping for cinema-quality colour grading
-- **PCF Soft Shadow Maps** on terrain
-- **Instanced/pooled geometry** for particle systems
-
-### Terrain
-- **Noise-based heightmap** using summed sine waves (fractal approximation)
-- **Vertex colour blending** — dirt/grass/rock transitions by elevation
-- **Base zone flattening** — terrain smoothly flattens around the command base
+- **PBR Materials** (`MeshStandardMaterial`) - roughness, metalness, emissive per object
+- **ACES Filmic** tone mapping for cinematic colour grading
+- **PCF Soft Shadow Maps** on terrain (2048×2048)
+- **Noise-based terrain** with vertex colour blending (dirt → grass → rock by elevation)
+- **Base zone flattening** - terrain procedurally smoothed around command centre
 
 ### Atmosphere
-- **Exponential fog** (`FogExp2`) matches real atmospheric scattering
-- **Layered haze cylinders** at altitude — simulates atmospheric depth
+- **Exponential fog** (`FogExp2`) - real atmospheric depth
+- **Layered haze cylinders** at 50m / 115m / 180m altitude
 - **4000-star field** with colour-varied star points
-- **Perimeter lighting** — 12 military-style ground lamps
+- **12 perimeter lamps** around base fence
 
-### Effects
-- **3-ring shockwave system** — primary, secondary, and fireball rings expanding after each kill
-- **Particle debris system** — 140 particles with gravity for major kills
-- **Exhaust smoke** — per-particle velocity + colour interpolation
-- **Engine glow** — pulsing `MeshBasicMaterial` sphere on every missile
-- **Screen-space kill rings** — projected from world to screen coordinates
+### Explosion System
+- **3-ring shockwave** - fireball ring (orange), pressure wave (white), outer blast (red)
+- **130-particle debris field** with gravity for major kills
+- **Per-particle colour interpolation** from bright core to dark smoke
+- **Flash point light** that fades with explosion
+
+### Laser DEW Visual
+- **Line geometry beam** from emitter to target with `opacity:1` flash
+- **Full-screen purple tint** flash on fire
+- **Energy bar** drains 22% per shot, recharges at 1.8%/s
 
 ---
 
 ## 📡 Radar Scope
 
-The 2D radar canvas implements a genuine-looking military PPI (Plan Position Indicator) scope:
+Military-authentic PPI (Plan Position Indicator) scope with:
 
-- **Phosphor persistence** — sweep trail fades naturally over 40 frames
-- **IFF classification** — different symbols per threat type (cross = ballistic, diamond = aircraft, dot = drone/cruise)
-- **Selection ring** — double-ring with dashed outer circle for locked target
-- **Blake SNR scale** — blip size and brightness correlate with target RCS
-- **Compass bearing** markers at N/E/S/W
+- **Phosphor persistence** - 40-frame sweep trail with natural fade
+- **IFF symbols** - `+` cross for ballistic, `◇` diamond for aircraft, `●` dot for cruise/drone
+- **Ghost blips** - purple random blips during jamming (EW confusion)
+- **ECM dim** - blip brightness reduced when target ECM active
+- **RADAR OFFLINE** overlay with countdown timer when ARM hits
+- **Blake SNR** - blip size scales with target RCS (stealth barely visible)
+- **Compass** N/E/S/W bearing markers
+- **Selection ring** - double dashed ring on locked target
 
 ---
 
 ## 🔊 Audio System
 
-All audio is procedurally synthesised using the **Web Audio API** — no external files required:
+Procedurally synthesised via **Web Audio API** - zero audio files:
 
-| Event | Synthesis Method |
+| Event | Synthesis |
 |---|---|
-| Radar sweep | Oscillator with exponential frequency ramp |
-| Missile launch | Sawtooth wave + noise buffer (exhaust roar) |
-| Explosion | White noise burst + sub-bass oscillator |
+| Radar sweep | Oscillator + exponential frequency ramp |
+| Missile launch | Sawtooth wave + white noise burst |
+| Explosion | Noise buffer + sub-bass oscillator (55Hz → 18Hz) |
 | Alert | Square wave multi-tone siren |
-| Critical warning | Three-pulse square wave at 880Hz |
+| EW jamming | Sine wave glide (220Hz → 880Hz → 110Hz) |
 
 ---
 
 ## 🛠 Tech Stack
 
 ```
-Runtime        Three.js r128       3D rendering, scene graph, materials
-Rendering      WebGL 2.0           Hardware-accelerated GPU rendering  
-Physics        Custom (vanilla JS) PN guidance, ballistics, drag, Pk
-Audio          Web Audio API       Procedural synthesis, no files
-Fonts          Google Fonts        Orbitron, Share Tech Mono, Rajdhani
-Deployment     GitHub Pages        Zero-config, single HTML file
+Runtime        Three.js r128       3D scene graph, PBR materials, shadows
+Rendering      WebGL 2.0           Hardware GPU acceleration
+Physics        Vanilla JS          APN guidance, ballistics, MIRV, BrahMos
+Audio          Web Audio API       Procedural synthesis, zero files
+EW Engine      Custom JS           Jamming, ARM, ECM, ghost blips
+Fonts          Google Fonts        Orbitron, Share Tech Mono
+Deployment     GitHub Pages        Single HTML file, zero config
 ```
 
-No build tools. No webpack. No npm. Pure browser-native.
+**No build tools. No webpack. No npm. No frameworks. Pure browser-native.**
 
 ---
 
 ## 📁 Single-File Architecture
 
-The entire simulation runs from `index.html`. The JavaScript is organized into **20 numbered sections** with JSDoc comments explaining each algorithm:
+The entire simulation (`index.html`) is organised into **23 numbered sections**:
 
 ```
-§ 1  Constants & Config       ~50 lines
-§ 2  Renderer + Scene         ~25 lines
-§ 3  Camera Controller        ~55 lines    ← 3 camera modes
-§ 4  Lighting                 ~30 lines    ← PBR lighting rig
-§ 5  World Builder            ~130 lines   ← Noise terrain + base
-§ 6  Physics Engine           ~110 lines   ← PN, ballistic, drag, Pk
-§ 7  AI Defense System        ~75 lines    ← Threat scoring + queue
-§ 8  Entity Factories         ~100 lines   ← PBR mesh builders
-§ 9  Target Management        ~90 lines
-§ 10 Interceptor Management   ~130 lines
-§ 11 Explosion System         ~95 lines    ← Shockwave rings
-§ 12 Radar System             ~95 lines    ← IFF scope
-§ 13 Detection System         ~35 lines    ← Blake equation
-§ 14 Kill Effect              ~20 lines    ← Screen-space
-§ 15 Audio System             ~75 lines    ← Web Audio synthesis
-§ 16 Log System               ~12 lines
-§ 17 UI System                ~120 lines   ← Live equations
-§ 18 Controls                 ~80 lines
-§ 19 Main Loop                ~70 lines
-§ 20 Boot Sequence            ~50 lines
+§ 1   Defence System Definitions   ~40 lines   ← 13 ADS incl. Indian systems
+§ 2   Threat Definitions           ~50 lines   ← 17 threats with full specs
+§ 3   Simulation State             ~20 lines   ← Single SIM truth object
+§ 4   Three.js Renderer            ~25 lines
+§ 5   Camera Controller            ~55 lines   ← 3 modes
+§ 6   Lighting + World             ~130 lines  ← Noise terrain, base, atmosphere
+§ 7   Guidance Engine              ~35 lines   ← Augmented Lead Pursuit
+§ 8   Physics Helpers              ~45 lines   ← Pk, detProb, threatScore
+§ 9   AI Multi-Layer Assignment    ~30 lines   ← getBestADS() routing
+§ 10  Mesh Factories               ~90 lines   ← PBR mesh construction
+§ 11  Target Spawning + Update     ~130 lines  ← 17 flight models
+§ 12  Interceptor System           ~95 lines   ← Launch, guidance, CIWS, Laser
+§ 13  Laser DEW                    ~20 lines
+§ 14  Explosions                   ~75 lines   ← 3-ring shockwave
+§ 15  Radar Scope (Canvas 2D)      ~100 lines  ← IFF, ghost blips, ARM damage
+§ 16  Detection System             ~35 lines   ← Blake + jamming + ARM
+§ 17  Kill Effects                 ~20 lines   ← Screen-space projection
+§ 18  Audio                        ~70 lines
+§ 19  Log System                   ~10 lines   ← Military vocabulary
+§ 20  UI Update                    ~110 lines  ← Flex layout, Pk bars, EW
+§ 21  Controls                     ~70 lines   ← Keys [0-9][A][C][F][M][X]
+§ 22  Main Loop                    ~65 lines   ← Radar repair, laser recharge
+§ 23  Boot Sequence                ~45 lines   ← Auto Gulf War demo
 ```
 
 ---
 
 ## 🌟 Why This Project Stands Out
 
-| Engineering Challenge | Implementation |
+| Engineering Challenge | v5 Implementation |
 |---|---|
-| **Real guidance algorithm** | Proportional Navigation, not "fly toward target" |
-| **Detection modeling** | Radar equation, not boolean in-range check |
-| **AI with priority queue** | Score-based targeting, not first-come-first-served |
-| **Ballistic phase modeling** | Boost → mid-course → terminal with gravity |
-| **Live physics display** | Equations update in real-time as interceptor closes |
-| **Zero dependencies** | Only Three.js from CDN — no framework, no build step |
-| **Single-file delivery** | Works on GitHub Pages with one drag-and-drop |
-| **60fps at high entity count** | Trail geometry pooling, UI update batching (every 12 frames) |
+| **Real guidance law** | Augmented Lead Pursuit, not "fly toward target" |
+| **Detection physics** | Blake radar equation with ECM + jamming degradation |
+| **Electronic warfare** | ARM kills radar; jamming creates ghost blips |
+| **MIRV physics** | Bus destructs at apogee, spawns independent RVs |
+| **Multi-layer AI** | 8-system layer routing by range, not one-size-fits-all |
+| **CIWS autonomous** | Auto-fires on its own 350ms timer regardless of mode |
+| **BrahMos behavior** | Sea-skimming + terminal pop-up maneuver modeled |
+| **Indian systems** | 5 DRDO/indigenous ADS + 3 Indian threat types |
+| **Zero dependencies** | Three.js CDN only - no npm, no build, no frameworks |
+| **Single file** | Deploy by drag-and-drop to GitHub Pages |
 
 ---
 
 ## 🔭 Future Scope
 
-- [ ] **ECEF coordinate system** — Real Earth-surface geometry with WGS84
-- [ ] **Real radar cross-section data** — Import from public RCS databases
-- [ ] **Multiplayer** — WebRTC or WebSocket for cooperative defence scenarios
-- [ ] **GLTF models** — Replace procedural meshes with real aircraft models
-- [ ] **Postprocessing bloom** — UnrealBloomPass for missile exhaust glow
-- [ ] **Terrain heightmap** — Import real DEM elevation data
-- [ ] **Salvo doctrine** — Multiple interceptor assignment per high-Pk threat
-- [ ] **Jamming simulation** — ECM degrading radar detection probability
-- [ ] **Mobile touch controls** — Pinch zoom, tap-to-engage
+- [ ] **ECEF coordinate system** - Real Earth geometry with WGS84
+- [ ] **GLTF models** - Replace procedural meshes with real aircraft models
+- [ ] **Multiplayer** - WebRTC cooperative defence with split-screen
+- [ ] **Terrain heightmap** - Real DEM elevation data from NASA SRTM
+- [ ] **Postprocessing bloom** - `UnrealBloomPass` for missile exhaust glow
+- [ ] **Salvo doctrine** - Multiple interceptors per high-value threat
+- [ ] **Mobile touch controls** - Pinch zoom, tap-to-engage
+- [ ] **Real RCS database** - Import public radar cross-section data
+- [ ] **Agni-V ICBM** - Indian ICBM with full exo-atmospheric trajectory
+- [ ] **Naval mode** - INS Vikrant carrier group with Barak-8 naval variant
 
 ---
 
+## 👔 For Recruiters
+
+This project demonstrates:
+
+**Systems Engineering** - Designed a real multi-layer IADS architecture (L1→L4) with intelligent routing, resource allocation, and engagement doctrine. Implemented genuine military guidance algorithms from mathematical specification.
+
+**Graphics Engineering** - WebGL/Three.js pipeline with PBR rendering, procedural terrain, particle systems, screen-space projection, and Canvas 2D radar rendering at 60fps.
+
+**Algorithm Implementation** - Augmented Lead Pursuit guidance, Blake radar equation, MIRV separation physics, BrahMos terminal maneuver, Pk estimation, AI threat scoring queue.
+
+**Software Architecture** - ~1,900 lines of structured, documented, single-file JavaScript. 23 clearly separated modules. No framework dependency.
+
+**Domain Knowledge** - Electronic warfare, radar physics, ballistic trajectories, Indian defence procurement (DRDO), multi-layer air defence doctrine.
 
 ---
 
 ## 📜 License
 
-MIT — use freely, attribution appreciated.
+MIT - use freely, attribution appreciated.
 
 ---
 
-*Built as a portfolio engineering project demonstrating simulation systems, guidance algorithms, and real-time 3D graphics.*
+*Built as a portfolio engineering project. Demonstrates simulation systems, defence algorithms, electronic warfare, and real-time 3D graphics in pure browser-native JavaScript.*
